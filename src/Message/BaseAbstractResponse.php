@@ -22,4 +22,14 @@ abstract class BaseAbstractResponse extends AbstractResponse
 
         return isset($data['result_code']) && $data['result_code'] == 'SUCCESS';
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getMessage()
+    {
+        $data= $this->getData();
+
+        return isset($data['err_code_des'])? $data['err_code_des'] : NULL;
+    }
 }
